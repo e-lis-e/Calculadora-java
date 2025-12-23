@@ -1,6 +1,8 @@
 import java.awt.*;
 import java.util.Arrays;
 import javax.swing.*;
+import javax.swing.border.LineBorder;
+
 
 public class Calculator {
     int boardWidth = 360;
@@ -56,6 +58,7 @@ public class Calculator {
             button.setFont(new Font("Arial", Font.PLAIN, 30));
             button.setText(buttonValue);
             button.setFocusable(false);
+            button.setBorder(new LineBorder(customAcqua));
             if (Arrays.asList(topSymbols).contains(buttonValue)){
                 button.setBackground(customHoneydew);
                 button.setForeground(customAcqua);
