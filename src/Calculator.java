@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.*;
 import java.util.Arrays;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -72,6 +73,32 @@ public class Calculator {
                 button.setForeground(Color.white);
             }
             buttonsPanel.add(button);
+
+            button.addActionListener(new ActionListener()  {
+                public void actionPerformed(ActionEvent e){
+                    JButton button = (JButton) e.getSource();
+                    String buttonValue = button.getText();
+                    if (Arrays.asList(rightSymbols).contains(buttonValue)) {
+
+                    }
+                    else if (Arrays.asList(topSymbols).contains(buttonValue)) {
+
+                    }
+                    else {
+                        if (buttonValue == ".") {
+
+                        }
+                        else if ("0123456789".contains(buttonValue)) {
+                            if (displayLabel.getText() == "0") {
+                                displayLabel.setText(buttonValue);
+                            }
+                            else {
+                                displayLabel.setText(displayLabel.getText() + buttonValue);
+                            }
+                        }
+                    }
+                }
+            });
         }
    }
 
