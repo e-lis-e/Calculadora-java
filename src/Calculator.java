@@ -1,8 +1,6 @@
 import java.awt.*;
-import java.awt.event.*;
 import java.util.Arrays;
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 
 public class Calculator {
     int boardWidth = 360;
@@ -57,6 +55,19 @@ public class Calculator {
             String buttonValue = buttonValues[i];
             button.setFont(new Font("Arial", Font.PLAIN, 30));
             button.setText(buttonValue);
+            button.setFocusable(false);
+            if (Arrays.asList(topSymbols).contains(buttonValue)){
+                button.setBackground(customHoneydew);
+                button.setForeground(customAcqua);
+            }
+            else if (Arrays.asList(rightSymbols).contains(buttonValue)) {
+                button.setBackground(customPink);
+                button.setForeground(Color.white);
+            }
+            else {
+                button.setBackground(customMint);
+                button.setForeground(Color.white);
+            }
             buttonsPanel.add(button);
         }
    }
