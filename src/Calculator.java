@@ -13,7 +13,21 @@ public class Calculator {
     Color customAcqua = new Color(132, 207, 200);
     Color customPink = new Color(237, 152, 186);
 
+    String[] buttonValues = {
+        "AC", "+/-", "%", "÷", 
+        "7", "8", "9", "×", 
+        "4", "5", "6", "-",
+        "1", "2", "3", "+",
+        "0", ".", "√", "="
+    };
+    String[] rightSymbols = {"÷", "×", "-", "+", "="};
+    String[] topSymbols = {"AC", "+/-", "%"};
+
     JFrame frame = new JFrame("Calculadora");
+
+    JLabel displayLabel = new JLabel();
+    JPanel displayPanel = new JPanel();
+    JPanel buttonsPanel = new JPanel();
 
     Calculator() {
         frame.setVisible(true);
@@ -22,6 +36,29 @@ public class Calculator {
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
-    }
+
+        displayLabel.setBackground(customAcqua);
+        displayLabel.setForeground(Color.white);
+        displayLabel.setFont(new Font("Arial", Font.PLAIN, 80));
+        displayLabel.setHorizontalAlignment(JLabel.RIGHT);
+        displayLabel.setText("0");
+        displayLabel.setOpaque(true);
+
+        displayPanel.setLayout(new BorderLayout());
+        displayPanel.add(displayLabel);
+        frame.add(displayPanel, BorderLayout.NORTH);
+
+        buttonsPanel.setLayout(new GridLayout(5,4));
+        buttonsPanel.setBackground(customAcqua);
+        frame.add(buttonsPanel);
+
+        for (int i = 0; i < buttonValues.length; i++){
+            JButton button = new JButton();
+            String buttonValue = buttonValues[i];
+            button.setFont(new Font("Arial", Font.PLAIN, 30));
+            button.setText(buttonValue);
+            buttonsPanel.add(button);
+        }
+   }
 
 }
